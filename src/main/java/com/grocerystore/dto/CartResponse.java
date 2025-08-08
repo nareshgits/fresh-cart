@@ -63,6 +63,8 @@ public class CartResponse {
         private String productName;
         private BigDecimal productPrice;
         private String productImageUrl;
+        private String productCategory;
+        private String productDescription;
         private Integer quantity;
         private BigDecimal subtotal;
 
@@ -79,6 +81,8 @@ public class CartResponse {
                 this.productName = cartItem.getProduct().getName();
                 this.productPrice = cartItem.getProduct().getPrice();
                 this.productImageUrl = cartItem.getProduct().getImageUrl();
+                this.productCategory = cartItem.getProduct().getCategory().name();
+                this.productDescription = cartItem.getProduct().getDescription();
                 this.subtotal = cartItem.getProduct().getPrice().multiply(BigDecimal.valueOf(quantity));
             }
         }
@@ -122,6 +126,22 @@ public class CartResponse {
 
         public void setProductImageUrl(String productImageUrl) {
             this.productImageUrl = productImageUrl;
+        }
+
+        public String getProductCategory() {
+            return productCategory;
+        }
+
+        public void setProductCategory(String productCategory) {
+            this.productCategory = productCategory;
+        }
+
+        public String getProductDescription() {
+            return productDescription;
+        }
+
+        public void setProductDescription(String productDescription) {
+            this.productDescription = productDescription;
         }
 
         public Integer getQuantity() {
